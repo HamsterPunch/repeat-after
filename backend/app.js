@@ -30,13 +30,17 @@ if (process.env.NODE_ENV === 'production') {
     app.use(morgan('combined'));
     app.use(hpp());
     app.use(helmet());
+    app.use(cors({
+        origin: 'http://repeatafter.site',
+        credentials: true
+    }));
 } else {
     app.use(morgan('dev'));
+    app.use(cors({
+        origin: 'http://localhost:4000',
+        credentials: true
+    }));
 }
-app.use(cors({
-    origin : ['http://localhost:4000', 'http://3.34.233.247', 'http://repeatafter.site'],
-    credentials : true
-}));
 app.use('/', express.static(path.join(__dirname, 'upload_image')));
 app.use('/', express.static(path.join(__dirname, 'upload_video')));
 app.use('/', express.static(path.join(__dirname, 'upload_thumbnail')));
