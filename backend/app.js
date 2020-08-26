@@ -34,7 +34,7 @@ if (process.env.NODE_ENV === 'production') {
     app.use(morgan('dev'));
 }
 app.use(cors({
-    origin : ['http://localhost:4000', 'http://3.34.233.247', 'repeatafter.site'],
+    origin : ['http://localhost:4000', 'http://3.34.233.247', 'http://repeatafter.site'],
     credentials : true
 }));
 app.use('/', express.static(path.join(__dirname, 'upload_image')));
