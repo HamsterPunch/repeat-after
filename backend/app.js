@@ -49,6 +49,6 @@ app.use('/user', userRouter);
 app.use('/post', postRouter);
 app.use('/posts', postsRouter);
 
-app.listen(3000, () => {
-    console.log('Repeat After backend server is running on http://locahost:3000');
+app.listen(80, () => {
+    console.log('Repeat After backend server is running on port 80');
 });
