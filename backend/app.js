@@ -1,5 +1,7 @@
 const express = require('express');
 const morgan = require('morgan');
+const hpp = require('hpp');
+const helmet = require('helmet');
 const cors = require('cors');
 const path = require('path');
 const cookieParser = require('cookie-parser');
@@ -24,9 +26,15 @@ db.sequelize.sync()
     });
 passportConfig();
 
-app.use(morgan('dev'));
+if (process.env.NODE_ENV === 'production') {
+    app.use(morgan('combined'));
+    app.use(hpp());
+    app.use(helmet());
+} else {
+    app.use(morgan('dev'));
+}
 app.use(cors({
-    origin : 'http://localhost:4000',
+    origin : ['http://localhost:4000'],
     credentials : true
 }));
 app.use('/', express.static(path.join(__dirname, 'upload_image')));
