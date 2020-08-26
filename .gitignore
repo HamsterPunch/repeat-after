@@ -1,0 +1,10 @@
+repeat-after.pem
+node_modules
+.env
+.next
+
+upload_audio
+upload_image
+upload_subtitle
+upload_thumbnail
+upload_video
