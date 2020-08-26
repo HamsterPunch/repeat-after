@@ -1,1 +1,1 @@
-exports.backUrl = 'http://54.180.103.226';
+exports.backUrl = 'http://3.35.101.3';
