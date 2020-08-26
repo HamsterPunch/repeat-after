@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon",
-    "start": "node app"
+    "start": "pm2 start app.js"
   },
   "author": "HamsterPunch",
   "license": "MIT",
@@ -21,6 +21,7 @@
     "mysql2": "^2.1.0",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
+    "pm2": "^4.4.1",
     "sequelize": "^6.3.4",
     "sequelize-cli": "^6.2.0"
   },
