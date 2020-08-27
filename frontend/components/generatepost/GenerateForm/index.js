@@ -172,7 +172,6 @@ const GenerateForm = () => {
                     ))}
                     <ButtonDiv>
                         <StyledButton onClick={onClickIncrease}>대사 추가하기</StyledButton>
-                        <StyledButton onClick={onClickReduce} >마지막 대사 제거</StyledButton>
                     </ButtonDiv>
                     <SubmitButton htmlType='submit'>업로드하기</SubmitButton>
                 </PostLineDiv>
