@@ -36,70 +36,64 @@ try {
     fs.mkdirSync('upload_audio');
 }
 
+AWS.config.update({
+    accessKeyId: process.env.S3_ACCESS_KEY_ID,
+    secretAccessKey: process.env.S3_SECRET_ACCESS_KEY,
+    region: 'ap-northeast-2'
+});
+
 const uploadVideo = multer({
-    storage: multer.diskStorage({
-        destination(req, file, done) {
-            done(null, 'upload_video');
-        },
-        filename(req, file, done) {
-            const ext = path.extname(file.originalname);
-            const basename = path.basename(file.originalname, ext);
-            done(null, basename + '_' + new Date().getTime() + ext);
+    storage: multerS3({
+        s3: new AWS.S3(),
+        bucket: 'repeat-after/video',
+        key(req, file, cb) {
+            cb(null, `original/${Date.now()}_${path.basename(file.originalname)}`)
         }
     }),
     limits: { fileSize: 1024 * 1024 * 10 }
 });
 const uploadSubtitle = multer({
-    storage: multer.diskStorage({
-        destination(req, file, done) {
-            done(null, 'upload_subtitle');
-        },
-        filename(req, file, done) {
-            const ext = path.extname(file.originalname);
-            const basename = path.basename(file.originalname, ext);
-            done(null, basename + '_' + new Date().getTime() + ext);
+    storage: multerS3({
+        s3: new AWS.S3(),
+        bucket: 'repeat-after/subtitle',
+        key(req, file, cb) {
+            cb(null, `original/${Date.now()}_${path.basename(file.originalname)}`)
         }
     }),
     limit: { fileSize: 1024 * 1024 * 1 }
 });
 const uploadThumbnail = multer({
-    storage: multer.diskStorage({
-        destination(req, file, done) {
-            done(null, 'upload_thumbnail');
-        },
-        filename(req, file, done) {
-            const ext = path.extname(file.originalname);
-            const basename = path.basename(file.originalname, ext);
-            done(null, basename + '_' + new Date().getTime() + ext);
+    storage: multerS3({
+        s3: new AWS.S3(),
+        bucket: 'repeat-after/thumbnail',
+        key(req, file, cb) {
+            cb(null, `original/${Date.now()}_${path.basename(file.originalname)}`)
         }
     }),
     limit: { fileSize: 1024 * 1024 * 2 }
 });
 const uploadAudio = multer({
-    storage: multer.diskStorage({
-        destination(req, file, done) {
-            done(null, 'upload_audio');
-        },
-        filename(req, file, done) {
-            const ext = path.extname(file.originalname);
-            const basename = path.basename(file.originalname, ext);
-            done(null, basename + '_' + new Date().getTime() + ext);
+    storage: multerS3({
+        s3: new AWS.S3(),
+        bucket: 'repeat-after/audio',
+        key(req, file, cb) {
+            cb(null, `original/${Date.now()}_${path.basename(file.originalname)}`)
         }
     }),
     limit: { filiSize: 1024 * 1024 * 5 }
 });
 
 router.post('/video', isLoggedIn, uploadVideo.array('video'), async (req, res) => {
-    res.json(req.files.map(v => v.filename));
+    res.json(req.files.map(v => v.location));
 });
 router.post('/subtitle', isLoggedIn, uploadSubtitle.array('subtitle'), async (req, res) => {
-    res.json(req.files.map(v => v.filename));
+    res.json(req.files.map(v => v.location));
 });
 router.post('/thumbnail', isLoggedIn, uploadThumbnail.array('thumbnail'), async (req, res) => {
-    res.json(req.files.map(v => v.filename));
+    res.json(req.files.map(v => v.location));
 });
 router.post('/audio', isLoggedIn, uploadAudio.array('audio'), async (req, res) => {
-    res.json(req.files.map(v => v.filename));
+    res.json(req.files.map(v => v.location));
 });
 router.post('/', isLoggedIn, async (req, res, next) => {
     try {

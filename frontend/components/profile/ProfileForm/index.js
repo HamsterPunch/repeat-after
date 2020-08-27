@@ -6,7 +6,6 @@ import { Form } from 'antd';
 import { WrapperDiv, PageTitleDiv, ProfileImageDiv, StyledImage, ProfileNicknameDiv, StyledInput, ButtonDiv, SubmitButton, CancelButton } from './styles';
 
 import { UPLOAD_IMAGE_REQUEST, EDIT_PROFILE_REQUEST } from '../../../reducers/user';
-import { backUrl } from '../../../config/config';
 
 const ProfileForm = () => {
     const dispatch = useDispatch();
@@ -54,7 +53,7 @@ const ProfileForm = () => {
                     프로필
                 </PageTitleDiv>
                 <ProfileImageDiv>
-                    <StyledImage onClick={onClickImage} src={imagePath.length ? `${backUrl}/${imagePath}` : me && me.image ? `${backUrl}/${me.image}` : '/utils/profile.png'} />
+                    <StyledImage onClick={onClickImage} src={imagePath.length ? `${imagePath}` : me && me.image ? `${me.image}` : '/utils/profile.png'} />
                     <input type='file' name='image' hidden ref={imageInput} onChange={onChangeImage} />
                 </ProfileImageDiv>
                 <ProfileNicknameDiv>

@@ -4,8 +4,6 @@ import Link from 'next/link';
 
 import { WrapperDiv, PostsSlider, SlideDiv, StyledA, StyledImg } from './styles';
 
-import { backUrl } from '../../../config/config';
-
 const settings = {
     infinite: true,
     slidesToShow: 1,
@@ -25,7 +23,7 @@ const PostCarousel = () => {
                     <SlideDiv key={v.id}>
                         <Link href={`/post/${v.id}`}>
                             <StyledA>
-                                <StyledImg src={`${backUrl}/${v.thumbnail_src}`} />
+                                <StyledImg src={`${v.thumbnail_src}`} />
                             </StyledA>
                         </Link>
                     </SlideDiv>

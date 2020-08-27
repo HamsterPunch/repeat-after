@@ -4,8 +4,6 @@ import Link from 'next/link';
 
 import { WrapperDiv, ListTitleDiv, ListItemDiv, PostDiv, ThumbnailDiv, StyledImage, ContentDiv, TitleDiv, DescriptionDiv } from './styles';
 
-import { backUrl } from '../../../config/config';
-
 const PostList = () => {
     const { mainPosts } = useSelector(state => state.post);
 
@@ -20,7 +18,7 @@ const PostList = () => {
                         <a>
                             <PostDiv>
                                 <ThumbnailDiv>
-                                    <StyledImage src={`${backUrl}/${v.thumbnail_src}`} />
+                                    <StyledImage src={`${v.thumbnail_src}`} />
                                 </ThumbnailDiv>
                                 <ContentDiv>
                                     <TitleDiv>

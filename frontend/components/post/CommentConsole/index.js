@@ -6,8 +6,6 @@ import { DownOutlined } from '@ant-design/icons';
 import CommentForm from '../CommentForm';
 import { WrapperDiv, TitleDiv, Title, StyledList } from './styles';
 
-import { backUrl } from '../../../config/config';
-
 const CommentConsole = () => {
     const { me } = useSelector(state => state.user);
     const { singlePost } = useSelector(state => state.post);
@@ -43,7 +41,7 @@ const CommentConsole = () => {
                                     avatar={
                                         <Avatar>
                                             { v.User.image
-                                                ? <img src={`${backUrl}/${v.User.image}`} />
+                                                ? <img src={`${v.User.image}`} />
                                                 : <img src='/utils/profile.png' />
                                             }
                                         </Avatar>

@@ -3,8 +3,6 @@ import ReactPlayer from 'react-player';
 
 import { WrapperDiv, SubtitlePopover, UtilsDiv, StyledRedoOutlined, StyledCustomerServiceOutlined } from './styles';
 
-import { backUrl } from '../../../config/config';
-
 const Line = ({ line }) => {
     const [ isDefault, setIsDefault ] = useState(true);
     const [ isPlaying, setIsPlaying ] = useState(false);
@@ -30,7 +28,7 @@ const Line = ({ line }) => {
             </UtilsDiv>
             <div>
                 <ReactPlayer
-                    url={`${backUrl}/${line.audio_src}`}
+                    url={`${line.audio_src}`}
                     width='100%'
                     height='100%'
                     playing={isPlaying}

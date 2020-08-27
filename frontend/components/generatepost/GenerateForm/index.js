@@ -9,7 +9,6 @@ import {
 } from './styles';
 
 import { UPLOAD_THUMBNAIL_REQUEST, UPLOAD_VIDEO_REQUEST, UPLOAD_SUBTITLE_EN_REQUEST, UPLOAD_SUBTITLE_KR_REQUEST, ADD_POST_REQUEST } from '../../../reducers/post';
-import { backUrl } from '../../../config/config';
 
 const GenerateForm = () => {
     const dispatch = useDispatch();
@@ -27,9 +26,6 @@ const GenerateForm = () => {
             lineArray[lineArray.length - 1] + 1
         ]);
     }, [lineArray]);
-    const onClickReduce = useCallback(() => {
-
-    }, []);
 
     const onChangeTitle = useCallback((e) => {
         setTitle(e.target.value);
@@ -135,7 +131,7 @@ const GenerateForm = () => {
                     <ThumbnailDiv>
                         <StyledLabel>포스트 썸네일</StyledLabel>
                         <ThumbnailInnerDiv>
-                            <StyledImage onClick={onClickThumbnail} src={ thumbnailPath.length ? `${backUrl}/${thumbnailPath}` : '/utils/thumbnail.png'} />
+                            <StyledImage onClick={onClickThumbnail} src={ thumbnailPath.length ? `${thumbnailPath}` : '/utils/thumbnail.png'} />
                             <input type='file' name='thumbnail' hidden ref={thumbnailInput} onChange={onChangeThumbnail} />
                         </ThumbnailInnerDiv>
                     </ThumbnailDiv>
