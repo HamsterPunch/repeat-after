@@ -44,7 +44,7 @@ const SignUpForm = () => {
                 email,
                 nickname,
                 password,
-                role: '#user'
+                role: '#user#admin'
             }
         });
     }, [email, nickname, password, passwordCheck, term]);
