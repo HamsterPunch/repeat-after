@@ -49,7 +49,7 @@ const uploadVideo = multer({
         s3: new AWS.S3(),
         bucket: 'repeat-after/video',
         key(req, file, cb) {
-            cb(null, `original/${Date.now()}_${path.basename(file.originalname)}`)
+            cb(null, `${Date.now()}_${path.basename(file.originalname)}`)
         }
     }),
     limits: { fileSize: 1024 * 1024 * 10 }
@@ -59,7 +59,7 @@ const uploadSubtitle = multer({
         s3: new AWS.S3(),
         bucket: 'repeat-after/subtitle',
         key(req, file, cb) {
-            cb(null, `original/${Date.now()}_${path.basename(file.originalname)}`)
+            cb(null, `${Date.now()}_${path.basename(file.originalname)}`)
         }
     }),
     limit: { fileSize: 1024 * 1024 * 1 }
@@ -69,7 +69,7 @@ const uploadThumbnail = multer({
         s3: new AWS.S3(),
         bucket: 'repeat-after/thumbnail',
         key(req, file, cb) {
-            cb(null, `original/${Date.now()}_${path.basename(file.originalname)}`)
+            cb(null, `${Date.now()}_${path.basename(file.originalname)}`)
         }
     }),
     limit: { fileSize: 1024 * 1024 * 2 }
@@ -79,7 +79,7 @@ const uploadAudio = multer({
         s3: new AWS.S3(),
         bucket: 'repeat-after/audio',
         key(req, file, cb) {
-            cb(null, `original/${Date.now()}_${path.basename(file.originalname)}`)
+            cb(null, `${Date.now()}_${path.basename(file.originalname)}`)
         }
     }),
     limit: { filiSize: 1024 * 1024 * 5 }
