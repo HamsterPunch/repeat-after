@@ -44,8 +44,8 @@ const LineForm = ({ index }) => {
     }, []);
 
     const onClickLock = useCallback(() => {
-        if (!audioPath || !subtitleKr || !subtitleEn || !description) {
-            return message.error('모든 정보를 입력하기 않으면 잠글수 없습니다.');
+        if (!audioPath || !subtitleKr || !subtitleEn) {
+            return message.error('모든 정보를 입력하지 않으면 잠글수 없습니다.');
         }
         const line = {
             audio_src: audioPath[0],
