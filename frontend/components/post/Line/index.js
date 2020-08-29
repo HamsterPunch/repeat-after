@@ -1,7 +1,7 @@
 import React, { useState, useCallback } from 'react';
 import ReactPlayer from 'react-player';
 
-import { WrapperDiv, SubtitlePopover, UtilsDiv, StyledRedoOutlined, StyledCustomerServiceOutlined } from './styles';
+import { WrapperDiv, SubtitlePopover, SubtitleDiv, UtilsDiv, StyledRedoOutlined, StyledCustomerServiceOutlined } from './styles';
 
 const Line = ({ line }) => {
     const [ isDefault, setIsDefault ] = useState(true);
@@ -16,12 +16,20 @@ const Line = ({ line }) => {
 
     return (
         <WrapperDiv>
-            <SubtitlePopover content={line.description}>
-                { isDefault
-                    ? line.subtitle_kr
-                    : line.subtitle_en
-                }
-            </SubtitlePopover>
+            { line.description
+                ? <SubtitlePopover content={line.description}>
+                    { isDefault
+                        ? line.subtitle_kr
+                        : line.subtitle_en
+                    }
+                </SubtitlePopover>
+                : <SubtitleDiv>
+                    { isDefault
+                        ? line.subtitle_kr
+                        : line.subtitle_en
+                    }
+                </SubtitleDiv>
+            }
             <UtilsDiv>
                 <StyledRedoOutlined onClick={onChangeLanguage} />
                 <StyledCustomerServiceOutlined onClick={onPlayAudio} />

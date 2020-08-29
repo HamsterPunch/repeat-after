@@ -23,6 +23,17 @@ export const SubtitlePopover = styled(Popover)`
         font-size: 1rem;
     }
 `;
+export const SubtitleDiv = styled.div`
+    flex: 1;
+    cursor: pointer;
+    padding: 8px;
+    color: black;
+    display: flex;
+    align-items: center;
+    @media only screen and (min-width: 768px) {
+        font-size: 1rem;
+    }
+`;
 export const UtilsDiv = styled.div`
     width: 4rem;
     display: flex;

@@ -24,6 +24,7 @@ const VoiceRecorder = () => {
 
     const liked = singlePost.Likers.find(v => v.id === id);
 
+    {/*
     useEffect(() => {
         navigator.getUserMedia(
             { audio: true },
@@ -34,6 +35,7 @@ const VoiceRecorder = () => {
             }
         )
     }, []);
+    */}
 
     const onStartRecording = useCallback(() => {
         setRecording(true);

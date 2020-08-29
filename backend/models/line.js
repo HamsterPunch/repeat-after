@@ -18,7 +18,7 @@ module.exports = class Line extends Model {
             },
             description: {
                 type : DataTypes.TEXT,
-                allowNull : false
+                allowNull : true
             },
             order: {
                 type: DataTypes.INTEGER,
