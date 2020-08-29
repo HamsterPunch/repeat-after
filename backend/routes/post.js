@@ -193,8 +193,7 @@ router.get('/:postId', async (req, res, next) => {
                 model: Line,
                 attributes: {
                     exclude: ['createdAt', 'updatedAt']
-                },
-                order: [['order', 'ASC']]
+                }
             }, {
                 model: Comment,
                 include: [{
