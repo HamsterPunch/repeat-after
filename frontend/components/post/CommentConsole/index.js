@@ -19,7 +19,7 @@ const CommentConsole = () => {
     return (
         <WrapperDiv>
             <TitleDiv onClick={onDisplayComment}>
-                <Title>6개의 댓글 보기</Title>
+                <Title>{`${singlePost.Comments.length || 0}개의 댓글 보기`}</Title>
                 { displayComment
                     ? null
                     : <DownOutlined />
