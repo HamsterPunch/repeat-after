@@ -7,7 +7,7 @@ import { WrapperDiv, TitleDiv } from './styles';
 const LineConsole = () => {
     const { Lines } = useSelector(state => state.post.singlePost);
 
-    const SortedLines = Lines.sort((a, b) => (a.order < b.order) ? 1 : -1);
+    const SortedLines = Lines.sort((a, b) => (a.order < b.order) ? -1 : 1);
 
     return (
         <WrapperDiv>
