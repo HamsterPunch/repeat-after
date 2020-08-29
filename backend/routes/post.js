@@ -200,7 +200,10 @@ router.get('/:postId', async (req, res, next) => {
                     model: User,
                     attributes: ['nickname', 'image'],
                 }]
-            }]
+            }],
+            order: [{
+                model: Line
+            }, 'order', 'ASC']
         });
         res.status(200).json(post);
     } catch(e) {
