@@ -1,19 +1,12 @@
 import React from 'react';
 
-import styled from 'styled-components';
-
-const WrapperDiv = styled.div`
-    width: 100%;
-    min-height: 320px;
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-    border: 1px solid lightgray;
-`;
+import { WrapperDiv, TitleDiv, StyledImg } from './styles';
 
 const Instruction = () => {
     return (
         <WrapperDiv>
-            Instruction
+            <TitleDiv>대사를 듣고 직접 말해보세요!</TitleDiv>
+            <StyledImg src='/utils/instruction.png' />
         </WrapperDiv>
     );
 };
