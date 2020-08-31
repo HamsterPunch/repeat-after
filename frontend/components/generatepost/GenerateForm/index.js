@@ -41,7 +41,7 @@ const GenerateForm = () => {
     }, [thumbnailInput.current]);
     const onChangeThumbnail = useCallback((e) => {
         if (!me) {
-            return window.alert('프로필을 수정하려면 로그인해야 합니다.');
+            return window.alert('포스트를 작성하려면 로그인해야 합니다.');
         }
         const thumbnailFormData = new FormData();
         [].forEach.call(e.target.files, (v) => {
@@ -58,6 +58,9 @@ const GenerateForm = () => {
         videoInput.current.click();
     }, [videoInput.current]);
     const onChangeVideo = useCallback((e) => {
+        if (!me) {
+            return window.alert('포스트를 작성하려면 로그인해야 합니다.');
+        }
         const videoFormData = new FormData();
         [].forEach.call(e.target.files, (v) => {
             videoFormData.append('video', v);
@@ -73,6 +76,9 @@ const GenerateForm = () => {
         subtitleEnInput.current.click();
     }, [subtitleEnInput.current]);
     const onChangeSubtitleEn = useCallback((e) => {
+        if (!me) {
+            return window.alert('포스트를 작성하려면 로그인해야 합니다.');
+        }
         const subtitleFormData = new FormData();
         [].forEach.call(e.target.files, (v) => {
             subtitleFormData.append('subtitle', v);
@@ -88,6 +94,9 @@ const GenerateForm = () => {
         subtitleKrInput.current.click();
     }, [subtitleKrInput.current]);
     const onChangeSubtitleKr = useCallback((e) => {
+        if (!me) {
+            return window.alert('포스트를 작성하려면 로그인해야 합니다.');
+        }
         const subtitleFormData = new FormData();
         [].forEach.call(e.target.files, (v) => {
             subtitleFormData.append('subtitle', v);
